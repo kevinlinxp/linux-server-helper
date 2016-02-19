@@ -36,3 +36,5 @@ sudo systemctl enable mariadb
 
 wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${VERSION_JAVA}/${JAVA_INSTALLER}"
 sodu yum -y install ${JAVA_INSTALLER}
+curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/profile.d/java.sh" > /etc/profile.d/java.sh
+source /etc/profile.d/java.sh
