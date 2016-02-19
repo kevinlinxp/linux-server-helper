@@ -42,13 +42,13 @@ sudo systemctl enable mariadb
 
 ## Install Oracle Java ##
 sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}/${JAVA_INSTALLER}"
-sodu yum -y install ${JAVA_INSTALLER}
+sudo yum -y install ${JAVA_INSTALLER}
 
-sodu mkdir -p ${MAVEN_ROOT}
+sudo mkdir -p ${MAVEN_ROOT}
 sudo curl -s "https://archive.apache.org/dist/maven/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz" | tar zxv -C ${MAVEN_ROOT}
 cd ${MAVEN_ROOT}
-ln -sf apache-maven-${MAVEN_VERSION} apache-maven
-ln -sf ${MAVEN_ROOT}/apache-maven/bin/mvn /usr/local/bin/mvn
+sudo ln -sf apache-maven-${MAVEN_VERSION} apache-maven
+sudo ln -sf ${MAVEN_ROOT}/apache-maven/bin/mvn /usr/local/bin/mvn
 
-curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/profile.d/java.sh" > ${JAVA_PROFILE}
+sudo curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/profile.d/java.sh" > ${JAVA_PROFILE}
 source ${JAVA_PROFILE}
