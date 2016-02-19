@@ -19,7 +19,7 @@ sudo yum -y install mariadb-server mariadb
 
 sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-sudo yum -y install php55w php55w-cli php55w-common php55w-gd php55w-mcrypt php55w-mysqlnd php55w-xml php55w-soap
+sudo yum -y install php55w php55w-cli php55w-common php55w-gd php55w-mcrypt php55w-mysqlnd php55w-xml php55w-soap php55w-mbstring
 
 # sudo yum -y install phpmyadmin
 curl -S https://files.phpmyadmin.net/phpMyAdmin/${VERSION_PHPMYADMIN}/phpMyAdmin-${VERSION_PHPMYADMIN}-english.tar.gz | tar zxv -C /var/www/html
