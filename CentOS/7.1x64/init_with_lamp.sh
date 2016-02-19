@@ -1,12 +1,14 @@
 #!/bin/bash
 
+## Variables ##
 VERSION_PHPMYADMIN=4.5.4.1
 TIME_ZONE=Australia/Adelaide
 
 VERSION_JAVA=8u73-b02
 JAVA_INSTALLER=jdk-8u73-linux-x64.rpm
+JAVA_PROFILE=/etc/profile.d/java.sh
 
-
+## Common Updates ##
 sudo mv /etc/localtime /etc/localtime.bak
 sudo ln -s /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
 
@@ -17,6 +19,8 @@ sudo yum -y clean all
 sudo yum -y install git
 sudo yum -y install zip unzip
 sudo yum -y tree
+
+## Install LAMP ##
 sudo yum -y install httpd
 sudo yum -y install mariadb-server mariadb
 
@@ -34,7 +38,8 @@ sudo systemctl enable mariadb
 
 #sudo mysql_secure_installation
 
+## Install Oracle Java ##
 wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${VERSION_JAVA}/${JAVA_INSTALLER}"
 sodu yum -y install ${JAVA_INSTALLER}
-curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/profile.d/java.sh" > /etc/profile.d/java.sh
-source /etc/profile.d/java.sh
+curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/profile.d/java.sh" > ${JAVA_PROFILE}
+source ${JAVA_PROFILE}
