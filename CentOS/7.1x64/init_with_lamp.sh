@@ -1,10 +1,10 @@
 #!/bin/bash
 
 ## Variables ##
-VERSION_PHPMYADMIN=4.5.4.1
+PHPMYADMIN_VERSION=4.5.4.1
 TIME_ZONE=Australia/Adelaide
 
-VERSION_JAVA=8u73-b02
+JAVA_VERSION=8u73-b02
 JAVA_INSTALLER=jdk-8u73-linux-x64.rpm
 JAVA_PROFILE=/etc/profile.d/java.sh
 
@@ -32,7 +32,7 @@ sudo rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 sudo yum -y install php55w php55w-cli php55w-common php55w-gd php55w-mcrypt php55w-mysqlnd php55w-xml php55w-soap php55w-mbstring
 
 # sudo yum -y install phpmyadmin
-sudo curl -S https://files.phpmyadmin.net/phpMyAdmin/${VERSION_PHPMYADMIN}/phpMyAdmin-${VERSION_PHPMYADMIN}-english.tar.gz | tar zxv -C /var/www/html
+sudo curl -S https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN_VERSION}/phpMyAdmin-${PHPMYADMIN_VERSION}-english.tar.gz | tar zxv -C /var/www/html
 
 sudo systemctl start httpd.service
 sudo systemctl enable httpd.service
@@ -41,7 +41,7 @@ sudo systemctl enable mariadb
 #sudo mysql_secure_installation
 
 ## Install Oracle Java ##
-sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${VERSION_JAVA}/${JAVA_INSTALLER}"
+sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}/${JAVA_INSTALLER}"
 sodu yum -y install ${JAVA_INSTALLER}
 
 sodu mkdir -p ${MAVEN_ROOT}
