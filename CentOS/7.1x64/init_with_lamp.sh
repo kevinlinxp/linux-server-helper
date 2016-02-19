@@ -3,6 +3,9 @@
 VERSION_PHPMYADMIN=4.5.4.1
 TIME_ZONE=Australia/Adelaide
 
+VERSION_JAVA=8u73-b02
+JAVA_INSTALLER=jdk-8u73-linux-x64.rpm
+
 
 sudo mv /etc/localtime /etc/localtime.bak
 sudo ln -s /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
@@ -29,4 +32,7 @@ sudo systemctl enable httpd.service
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 
-sudo mysql_secure_installation
+#sudo mysql_secure_installation
+
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${VERSION_JAVA}/${JAVA_INSTALLER}"
+sodu yum -y install ${JAVA_INSTALLER}
