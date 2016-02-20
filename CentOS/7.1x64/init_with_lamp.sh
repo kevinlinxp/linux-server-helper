@@ -11,6 +11,8 @@ JAVA_PROFILE=/etc/profile.d/java.sh
 MAVEN_VERSION=3.0.5
 MAVEN_ROOT=/opt/maven
 
+MONGODB_VERSION=2.6.11
+
 ## Common Updates ##
 sudo mv /etc/localtime /etc/localtime.bak
 sudo ln -s /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime
@@ -52,3 +54,9 @@ sudo ln -sf ${MAVEN_ROOT}/apache-maven/bin/mvn /usr/local/bin/mvn
 
 sudo curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/profile.d/java.sh" > ${JAVA_PROFILE}
 source ${JAVA_PROFILE}
+
+## Install MongoDB ##
+sudo curl -s "https://raw.githubusercontent.com/kelindev/scripts/master/CentOS/etc/yum.repos.d/mongodb.repo" > /etc/yum.repos.d/mongodb.repo
+sudo yum install -y mongodb-org-${MONGODB_VERSION} mongodb-org-server-${MONGODB_VERSION} mongodb-org-shell-${MONGODB_VERSION} mongodb-org-mongos-${MONGODB_VERSION} mongodb-org-tools-${MONGODB_VERSION}
+sudo echo "exclude=mongodb-org,mongodb-org-server,mongodb-org-shell,mongodb-org-mongos,mongodb-org-tools" >> /etc/yum.conf
+sudo semanage port -a -t mongod_port_t -p tcp 27017
