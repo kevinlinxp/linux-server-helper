@@ -6,7 +6,7 @@ function show_usage_and_exit() {
 }
 
 if [ -z "$mysql_root" ]; then
-	mysql_root=root
+  mysql_root=root
 fi
 
 if [ -z "$mysql_root_password" ]; then
@@ -15,15 +15,15 @@ if [ -z "$mysql_root_password" ]; then
 fi
 
 if [ -z "$db_name" ]; then
-	show_usage_and_exit
+  show_usage_and_exit
 fi
 
 if [ -z "$db_user" ]; then
-	show_usage_and_exit
+  show_usage_and_exit
 fi
 
 if [ -z "$db_password" ]; then
-	show_usage_and_exit
+  show_usage_and_exit
 fi
 
 echo -e "\nInitializing an empty database (db_name=$db_name;db_user=$db_user;db_password=$db_password) ..."
