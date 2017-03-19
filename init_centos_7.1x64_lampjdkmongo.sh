@@ -43,7 +43,8 @@ sudo systemctl enable mariadb
 #sudo mysql_secure_installation
 
 ## Install Oracle Java ##
-sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}/${JAVA_INSTALLER}"
+#sudo wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}/${JAVA_INSTALLER}"
+sudo wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/${JAVA_VERSION}/${JAVA_INSTALLER}
 sudo yum -y install ${JAVA_INSTALLER}
 
 sudo mkdir -p ${MAVEN_ROOT}
