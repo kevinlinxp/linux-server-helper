@@ -53,13 +53,17 @@ cd ${MAVEN_ROOT}
 sudo ln -sf apache-maven-${MAVEN_VERSION} apache-maven
 sudo ln -sf ${MAVEN_ROOT}/apache-maven/bin/mvn /usr/local/bin/mvn
 
-sudo curl -s "https://raw.githubusercontent.com/kevinlinhelloworld/linux-server-helper/master/init/centos/7.1x64/etc/profile.d/java.sh" > ${JAVA_PROFILE}
+sudo curl -s "https://raw.githubusercontent.com/kevinlinxp/linux-server-helper/master/init/centos/7.1x64/etc/profile.d/java.sh" > ${JAVA_PROFILE}
 source ${JAVA_PROFILE}
 
 ## Install MongoDB ##
-sudo curl -s "https://raw.githubusercontent.com/kevinlinhelloworld/linux-server-helper/master/init/centos/7.1x64/etc/yum.repos.d/mongodb.repo" > /etc/yum.repos.d/mongodb.repo
+sudo curl -s "https://raw.githubusercontent.com/kevinlinxp/linux-server-helper/master/init/centos/7.1x64/etc/yum.repos.d/mongodb.repo" > /etc/yum.repos.d/mongodb.repo
 sudo yum install -y mongodb-org-${MONGODB_VERSION} mongodb-org-server-${MONGODB_VERSION} mongodb-org-shell-${MONGODB_VERSION} mongodb-org-mongos-${MONGODB_VERSION} mongodb-org-tools-${MONGODB_VERSION}
 sudo echo "exclude=mongodb-org,mongodb-org-server,mongodb-org-shell,mongodb-org-mongos,mongodb-org-tools" >> /etc/yum.conf
 sudo semanage port -a -t mongod_port_t -p tcp 27017
 sudo service mongod start #sudo systemctl start mongod.service
 sudo chkconfig mongod on
+
+## Install nodejs
+sudo yum install epel-release
+sudo rpm -ivh https://kojipkgs.fedoraproject.org//packages/http-parser/2.7.1/3.el7/x86_64/http-parser-2.7.1-3.el7.x86_64.rpm && yum -y install nodejs

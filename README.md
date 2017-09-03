@@ -2,5 +2,5 @@
 ```sh
 git clone https://github.com/kevinlinxp/linux-server-helper.git
 cd linux-server-helper
-sh init_centos_7.1x64_lampjdkmongo.sh
+sh install-all-centos-7.1x64.sh
 ```
