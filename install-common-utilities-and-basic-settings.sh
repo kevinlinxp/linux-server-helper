@@ -10,4 +10,4 @@ sudo yum -y clean all
 
 sudo yum -y install git
 sudo yum -y install zip unzip
-sudo yum -y tree
+sudo yum -y install tree
